@@ -21,7 +21,7 @@ namespace neilkilbride.twiliofun.Controllers
         [System.Web.Http.ActionName("Incoming")]
         public Response GetIncoming()
         {
-            return new Response() { Say = "Hello world" };
+            return new Response() { Say = "Hello Louise. You are pretty today. Kiss, kiss!" };
         }
 
         [System.Web.Http.ActionName("PlainIncoming")]
