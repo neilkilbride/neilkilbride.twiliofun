@@ -3,7 +3,9 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace neilkilbride.twiliofun.formatters
@@ -29,10 +31,11 @@ namespace neilkilbride.twiliofun.formatters
                     xns.Add(string.Empty, string.Empty);
                 }
 
+                var xmlTextWriter = new XmlTextWriter(writeStream, Encoding.UTF8);
                 var serializer = new XmlSerializer(type);
-                serializer.Serialize(writeStream, value, xns);
+                serializer.Serialize(xmlTextWriter, value, xns);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 await base.WriteToStreamAsync(type, value, writeStream, content, transportContext);
             }
