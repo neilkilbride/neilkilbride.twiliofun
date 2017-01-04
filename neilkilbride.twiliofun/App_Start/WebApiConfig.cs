@@ -5,12 +5,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.Owin.Security.OAuth;
 using neilkilbride.twiliofun.Controllers;
+using neilkilbride.twiliofun.formatters;
 using Newtonsoft.Json.Serialization;
 
 namespace neilkilbride.twiliofun
@@ -24,9 +27,8 @@ namespace neilkilbride.twiliofun
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-            //config.Formatters.XmlFormatter.UseXmlSerializer = true;
-            config.Formatters.XmlFormatter.WriterSettings.OmitXmlDeclaration = false;
-            config.Formatters.XmlFormatter.WriterSettings.Indent = true;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.Add(new EnhancedNamespaceXmlFormatter { UseXmlSerializer = true });
 
             // Web API routes
             config.MapHttpAttributeRoutes();

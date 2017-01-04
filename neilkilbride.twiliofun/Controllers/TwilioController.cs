@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using System.Web.Mvc;
 using System.Xml.Serialization;
+using neilkilbride.twiliofun.models.twilio;
 
 namespace neilkilbride.twiliofun.Controllers
 {
@@ -35,13 +36,5 @@ namespace neilkilbride.twiliofun.Controllers
         {
             return new string[] { "value3", "value4" };
         }
-    }
-
-
-    [DataContract(Namespace = "")]
-    public class Response
-    {
-        [DataMember()]
-        public string Say { get; set; }
     }
 }
