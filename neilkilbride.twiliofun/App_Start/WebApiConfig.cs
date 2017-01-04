@@ -27,7 +27,8 @@ namespace neilkilbride.twiliofun
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            // Only want to use our custom XML formatter (no JSON etc.)
+            config.Formatters.Clear();
             config.Formatters.Add(new EnhancedNamespaceXmlFormatter { UseXmlSerializer = true });
 
             // Web API routes
