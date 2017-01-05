@@ -33,11 +33,11 @@ namespace neilkilbride.twiliofun.Controllers
 
         // GET api/twilio/statusupdates
         [System.Web.Http.ActionName("StatusUpdates")]
-        public Response GetStatusUpdates()
+        public Response GetStatusUpdates(string digits)
         {
             return new Response()
             {
-                Say = "Done."
+                Say = "You pressed " + digits,
             };
         }
 
