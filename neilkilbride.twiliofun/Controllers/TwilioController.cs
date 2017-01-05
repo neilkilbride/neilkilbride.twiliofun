@@ -21,20 +21,25 @@ namespace neilkilbride.twiliofun.Controllers
         [System.Web.Http.ActionName("Incoming")]
         public Response GetIncoming()
         {
-            return new Response() { Say = "Hello Louise. You are pretty today. Kiss, kiss!" };
+            return new Response()
+                   {
+                       Gather = new GatherOneDigit()
+                                {
+                                    ActionUrl = "/api/twilio/statusupdates",
+                                    Say = "This call will provide you with the latest Twilio status updates. How many updates would you like to hear?"
+                                }
+                   };
         }
 
-        [System.Web.Http.ActionName("PlainIncoming")]
-        public HttpResponseMessage GetPlainIncoming()
+        // GET api/twilio/statusupdates
+        [System.Web.Http.ActionName("StatusUpdates")]
+        public Response GetStatusUpdates()
         {
-            return new HttpResponseMessage() { Content = new StringContent("<?xml version=\"1.0\" encoding=\"utf-8\"?><Response><Say>Hello world</Say></Response>", Encoding.UTF8, "application/xml" )};
-
+            return new Response()
+            {
+                Say = "Done."
+            };
         }
 
-        [System.Web.Http.ActionName("Something")]
-        public IEnumerable<string> GetSomething()
-        {
-            return new string[] { "value3", "value4" };
-        }
     }
 }
