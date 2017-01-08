@@ -78,6 +78,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="QDFeedParser, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\qdfeed.1.1.0\lib\net45\QDFeedParser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -209,6 +213,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="controllers\AccountController.cs" />
     <Compile Include="controllers\HomeController.cs" />
+    <Compile Include="models\twilio\TwilioStatusResponseGenerator.cs" />
     <Compile Include="formatters\EnhancedNamespaceXmlFormatter.cs" />
     <Compile Include="models\twilio\Response.cs" />
     <Compile Include="controllers\TwilioController.cs" />

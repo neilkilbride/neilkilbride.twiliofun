@@ -23,42 +23,5 @@ namespace neilkilbride.twiliofun.models.twilio
 
         public string Say { get; set; }
     }
-
-    //    using System.Xml.Serialization;
-
-    //namespace neilkilbride.twiliofun.models.twilio
-    //    {
-    //        public class Response
-    //        {
-    //            public Response(string message)
-    //            {
-    //                this.Gather = new GatherOneDigit(message);
-    //                this.Test = "Boo";
-    //            }
-
-    //            public string Test { get; set; }
-
-
-
-    //            /*
-    //             * <Gather numDigits="1" action="/api/twilio/statusupdates" method="GET">
-    //        <Say>Enter something, or not</Say>
-    //    </Gather>
-    //             */
-
-    //            [XmlElement(ElementName = "Gather")]
-    //            public GatherOneDigit Gather { get; private set; }
-
-    //        }
-
-    //        public class GatherOneDigit
-    //        {
-    //            public GatherOneDigit(string message)
-    //            {
-    //                this.Say = message;
-    //            }
-
-    //            public string Say { get; private set; }
-    //        }
-    //    }
+    
 }

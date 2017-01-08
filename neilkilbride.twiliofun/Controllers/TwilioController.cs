@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Mime;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Web.Http;
-using System.Web.Http.Results;
-using System.Web.Mvc;
-using System.Xml.Serialization;
+﻿using System.Web.Http;
+using Microsoft.Owin.Security.Facebook;
 using neilkilbride.twiliofun.models.twilio;
 
 namespace neilkilbride.twiliofun.Controllers
@@ -19,7 +9,7 @@ namespace neilkilbride.twiliofun.Controllers
         
         // GET api/twilio/incoming
         [System.Web.Http.ActionName("Incoming")]
-        public Response GetIncoming()
+        public Response GetIncomingCallResponse()
         {
             return new Response()
                    {
@@ -33,12 +23,11 @@ namespace neilkilbride.twiliofun.Controllers
 
         // GET api/twilio/statusupdates
         [System.Web.Http.ActionName("StatusUpdates")]
-        public Response GetStatusUpdates(string digits)
+        public Response GetStatusUpdatesResponse(int digits)
         {
-            return new Response()
-            {
-                Say = "You pressed " + digits,
-            };
+            var generator = new TwilioStatusResponseGenerator();
+
+            return generator.GetStatusesResponse(digits);
         }
 
     }

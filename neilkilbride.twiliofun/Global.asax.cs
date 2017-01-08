@@ -20,11 +20,5 @@ namespace neilkilbride.twiliofun
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        protected void Application_Error(object sender, EventArgs e)
-        {
-            // Get the exception object.
-            Exception exc = Server.GetLastError();
-
-        }
     }
 }
