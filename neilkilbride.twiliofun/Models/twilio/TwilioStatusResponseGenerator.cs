@@ -30,11 +30,12 @@ namespace neilkilbride.twiliofun.models.twilio
         private string GetStatusString(int numberOfStatuses)
         {
             var builder = new StringBuilder();
+            builder.AppendFormat("Playing {0} status updates. ", numberOfStatuses);
+
             for (int i = 0; i < numberOfStatuses; i++)
             {
                 var item = (Rss20FeedItem)_feed.Items[i];
-                builder.AppendFormat("Playing {0} status updates.....", numberOfStatuses);
-                builder.AppendLine(item.DatePublished.ToUniversalTime().ToString("U") + " UTC. " + item.Title + ".....");
+                builder.AppendLine(item.DatePublished.ToUniversalTime().ToString("U") + " UTC. " + item.Title + ". ");
             }
 
             var sayString = builder.ToString();
