@@ -33,7 +33,8 @@ namespace neilkilbride.twiliofun.models.twilio
             for (int i = 0; i < numberOfStatuses; i++)
             {
                 var item = (Rss20FeedItem)_feed.Items[i];
-                builder.AppendLine(item.DatePublished.ToUniversalTime().ToString("U") + " UTC. " + item.Title + ".");
+                builder.AppendFormat("Playing {0} status updates.....", numberOfStatuses);
+                builder.AppendLine(item.DatePublished.ToUniversalTime().ToString("U") + " UTC. " + item.Title + ".....");
             }
 
             var sayString = builder.ToString();
