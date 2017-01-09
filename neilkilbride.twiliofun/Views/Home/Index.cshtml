@@ -3,22 +3,23 @@
     <p class="lead">App for playing with the Twilio API. Code available on my Github account.</p>
     <p><a href="https://github.com/neilkilbride/neilkilbride.twiliofun" class="btn btn-primary btn-lg">Source Code &raquo;</a></p>
 </div>
-@*<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+<div class="row">
+    <div class="col-md-6">
+        <h2>1. Incoming calls</h2>
+        <p>
+            When my Twilio number (+44 121 2854070) receives a call, Twilio requests the call content
+            from <a href="/api/twilio/incoming">/api/twilio/incoming</a>. This in turn prompts the user to enter
+            on the phone keypad how many status updates (from <a href="https://status.twilio.com/history.rss">Twilio's 
+            RSS feed</a>) it would like read out.
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+    <div class="col-md-6">
+        <h2>2. Status Updates</h2>
+        <p>
+            When the user enters the number of status updates it wants, Twilio makes a request to 
+            <a href="/api/twilio/StatusUpdates?digits=3">/api/twilio/statusupdates</a> with a digits parameter. 
+            This endpoint then retrieves the Twilio Status RSS feed and converts it into TwilML for it 
+            to be read out.
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>*@
+</div>
