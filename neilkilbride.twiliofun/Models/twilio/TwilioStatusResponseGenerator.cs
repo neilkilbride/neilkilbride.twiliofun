@@ -23,14 +23,14 @@ namespace neilkilbride.twiliofun.models.twilio
 
             return new Response()
                    {
-                       Say = GetStatusString()
+                       Say = GetStatusString(numberOfStatuses)
                    };
         }
 
-        private string GetStatusString()
+        private string GetStatusString(int numberOfStatuses)
         {
             var builder = new StringBuilder();
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < numberOfStatuses; i++)
             {
                 var item = (Rss20FeedItem)_feed.Items[i];
                 builder.AppendLine(item.DatePublished.ToUniversalTime().ToString("U") + " UTC. " + item.Title + ".");
